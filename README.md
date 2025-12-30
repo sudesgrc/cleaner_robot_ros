@@ -135,15 +135,6 @@ rooms:
       - {x: 2.2, y: -0.5, yaw: 0.0}
 
 
-📊 Temizlik Raporu
-Örnek çıktı:
-=== TEMİZLİK RAPORU ===
-LIVINGROOM : TEMİZLENDİ
-BATHROOM   : TEMİZLENDİ
-KITCHEN    : TAMAMLANAMADI (timeout)
-BEDROOM    : KISMEN (1/3)
-CORRIDOR   : TEMİZLENDİ
-======================
 👩‍💻 Geliştirici
 Sude
 
