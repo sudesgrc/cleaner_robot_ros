@@ -123,5 +123,3 @@ Robotun tanıması için QR içerikleri şu yapıda olmalıdır:
 ---
 
 ```
-
-```
