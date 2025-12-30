@@ -58,18 +58,29 @@ move_base
 
 🚀 Kurulum
 Catkin workspace içine paketi ekledikten sonra:
+
 cd ~/catkin_ws
+
 catkin_make
+
 source ~/catkin_ws/devel/setup.bash
+
 ▶️ Çalıştırma Komutları
+
 1️⃣ Gazebo Ortamını Başlatma
+
 roslaunch ktun_robotics start_my_project.launch
+
 2️⃣ Navigasyon Çalıştırma
-roslaunch turtlebot3_navigation turtlebot3_navigation.launch \
-map_file:=$HOME/catkin_ws/src/ktun_robotics/maps/my_map.yaml
+
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch \map_file:=$HOME/catkin_ws/src/ktun_robotics/maps/my_map.yaml
+
 3️⃣ Görev Yöneticisini Başlatma
+
 rosrun ktun_robotics qr+task.py
+
 🧠 Görev Akışı
+
 Robot ev ortamında başlar
 
 Oda giriş noktasına gider
