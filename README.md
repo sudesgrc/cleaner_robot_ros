@@ -23,10 +23,6 @@ tüm görevler tamamlandığında **detaylı bir temizlik raporu** oluşturur.
 - 🧠 **YAML tabanlı görev yapılandırması**
 
 ---
-
-## 🗂️ Proje Klasör Yapısı
-
-```text
 ktun_robotics/
 ├── launch/
 │   └── start_my_project.launch
@@ -57,8 +53,8 @@ ktun_robotics/
 ├── package.xml
 └── CMakeLists.txt
 
-
 ⚙️ Gereksinimler
+
 Ubuntu 20.04
 
 ROS Noetic
@@ -74,9 +70,9 @@ pyzbar
 move_base
 
 👩‍💻 Geliştirici
+
 Sude
 
 📍 Konya Teknik Üniversitesi
 📘 Robotik & Yapay Zeka
 📌 ROS • Python • OpenCV • Gazebo
-
