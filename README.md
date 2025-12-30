@@ -56,6 +56,8 @@ ktun_robotics/
 ├── README.md
 ├── package.xml
 └── CMakeLists.txt
+
+
 ⚙️ Gereksinimler
 Ubuntu 20.04
 
@@ -70,6 +72,7 @@ OpenCV
 pyzbar
 
 move_base
+
 
 👩‍💻 Geliştirici
 Sude
