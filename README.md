@@ -57,22 +57,26 @@ ktun_robotics/
 ├── package.xml
 └── CMakeLists.txt
 
-## ⚙️ Gereksinimler
 
-- Ubuntu 20.04  
-- ROS Noetic  
-- Gazebo  
-- RViz  
-- OpenCV  
-- pyzbar  
-- move_base  
+⚙️ Gereksinimler
+Ubuntu 20.04
 
----
+ROS Noetic
 
-## 👩‍💻 Geliştirici
+Gazebo
 
-**Sude**  
+RViz
 
-📍 Konya Teknik Üniversitesi  
-📘 Robotik & Yapay Zeka  
-📌 ROS • Python • OpenCV • Gazebo  
+OpenCV
+
+pyzbar
+
+move_base
+
+👩‍💻 Geliştirici
+Sude
+
+📍 Konya Teknik Üniversitesi
+📘 Robotik & Yapay Zeka
+📌 ROS • Python • OpenCV • Gazebo
+
