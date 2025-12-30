@@ -1,5 +1,5 @@
 
-# 🤖 KTUN Robotics: QR Tabanlı Otonom Temizlik Robotu 🧹
+# 🤖 QR Tabanlı Otonom Temizlik Robotu 🧹
 
 ![ROS Noetic](https://img.shields.io/badge/ROS-Noetic-blue?logo=ros) ![Ubuntu 20.04](https://img.shields.io/badge/OS-Ubuntu%2020.04-orange?logo=ubuntu) ![Python](https://img.shields.io/badge/Language-Python-yellow?logo=python)
 
