@@ -1,0 +1,40 @@
+rooms:
+  - name: "KITCHEN"
+    qr_expected: "ROOM=KITCHEN"
+    entry_goal: {x: -1.5, y: 1.5, yaw: -1.57} # Yukarı bakıyor
+    cleaning_goals:
+      - {x: -0.5, y: 4.3, yaw: 1.57}   # Yukarı doğru gitmeye devam et
+      - {x: -3.5, y: 4.3, yaw: 3.14}   # Sola dön ve ilerle
+      - {x: -3.5, y: 1.3, yaw: -1.57}  # Aşağı dön ve ilerle
+
+  - name: "LIVINGROOM"
+    qr_expected: "ROOM=LIVINGROOM"
+    entry_goal: {x: -3.5, y: 1.30, yaw: 1.57}
+    cleaning_goals:
+      - {x: -5.5, y: 4.3, yaw: 3.14}   # Sola ve yukarı çapraza giderken sola bakması iyidir
+      - {x: -6.5, y: 4.3, yaw: 3.14}   # Sola gitmeye devam et
+      - {x: -6.5, y: 2.3, yaw: -1.57}  # Aşağı dön
+
+  - name: "CORRIDOR"
+    qr_expected: "ROOM=CORRIDOR"
+    entry_goal: {x: -5.5, y: 2.30, yaw: 0.0}
+    cleaning_goals:
+      - {x: -5.5, y: 0.30, yaw: -1.57} # Aşağı (Güneye) bak
+      - {x: -5.50, y: 2.0, yaw: 1.57} # Tekrar yukarı (Kuzeye) bak
+      - {x: -6.50, y: 0.30, yaw: 3.14} # Sola bak
+
+  - name: "BATHROOM"
+    qr_expected: "ROOM=BATHROOM"
+    entry_goal: {x: 3.7, y: 4.20, yaw: 1.57}
+    cleaning_goals:
+      - {x: 2.3, y: 4.45, yaw: 3.14}   # Sola bak
+      - {x: 1.70, y: 2.50, yaw: -1.57} # Aşağı bak
+      - {x: 1.20, y: 2.4, yaw: 3.14}   # Sola bak
+
+  - name: "BEDROOM"
+    qr_expected: "ROOM=BEDROOM"
+    entry_goal: {x: 6.0, y: 1.30, yaw: 3.14}
+    cleaning_goals:
+      - {x: 6.8, y: -0.60, yaw: -1.57} # Aşağı bak
+      - {x: 6.8, y: -3.5, yaw: -1.57}  # Aşağı bakmaya devam et
+      - {x: 6.20, y: -3.50, yaw: 3.14}  # Sola dön
