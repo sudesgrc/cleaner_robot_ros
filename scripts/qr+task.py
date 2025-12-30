@@ -86,7 +86,7 @@ class AkilliKtunRobotu:
             rospy.logwarn("Hedefe gidilemedi (timeout)")
             return False
 
-        return self.client.get_state() == 3  # SUCCEEDED
+        return self.client.get_state() == 3  
 
     # ---------------- TEMİZLİK ----------------
     def temizlik_turu(self):
