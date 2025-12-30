@@ -1,4 +1,3 @@
-````markdown
 # 🤖 KTUN Robotics – QR Tabanlı Otonom Temizlik Robotu 🧹
 
 Bu proje, **ROS Noetic** ortamında çalışan,  
@@ -57,7 +56,6 @@ ktun_robotics/
 ├── README.md
 ├── package.xml
 └── CMakeLists.txt
-````
 
 ---
 
