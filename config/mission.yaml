@@ -37,4 +37,4 @@ rooms:
     cleaning_goals:
       - {x: 6.8, y: -0.60, yaw: -1.57} # Aşağı bak
       - {x: 6.8, y: -3.5, yaw: -1.57}  # Aşağı bakmaya devam et
-      - {x: 6.20, y: -3.50, yaw: 3.14}  # Sola dön
+      - {x: 6.20, y: -3.50, yaw: 3.14} 
