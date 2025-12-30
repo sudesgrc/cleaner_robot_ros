@@ -121,5 +121,3 @@ Robotun tanıması için QR içerikleri şu yapıda olmalıdır:
 📌 ROS • Python • OpenCV • Gazebo
 
 ---
-
-```
