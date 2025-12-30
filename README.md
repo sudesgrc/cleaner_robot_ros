@@ -133,10 +133,9 @@ rooms:
     cleaning_goals:
       - {x: 1.8, y: -1.0, yaw: 1.57}
       - {x: 2.2, y: -0.5, yaw: 0.0}
-📊 Temizlik Raporu
-Görev sonunda hem terminalde hem de
-report/temizlik_raporu.txt dosyasında rapor oluşturulur.
 
+
+📊 Temizlik Raporu
 Örnek çıktı:
 === TEMİZLİK RAPORU ===
 LIVINGROOM : TEMİZLENDİ
