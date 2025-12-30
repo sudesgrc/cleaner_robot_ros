@@ -1,34 +1,34 @@
-KTUN Robotics – QR Tabanlı Otonom Temizlik Robotu 🤖🧹
 
-Bu proje, ROS (Robot Operating System) kullanılarak geliştirilmiş,
-QR kod ile oda tanıma, otonom navigasyon ve oda bazlı temizlik gerçekleştiren
-akıllı bir mobil robot sistemidir.
+````markdown
+# 🤖 KTUN Robotics – QR Tabanlı Otonom Temizlik Robotu 🧹
 
-Robot, ev ortamında odalara girerken QR kodları okuyarak hangi odaya girdiğini doğrular,
-her oda için belirlenen temizlik görevlerini yerine getirir ve tüm görevler tamamlandığında
-detaylı bir temizlik raporu oluşturur.
+Bu proje, **ROS Noetic** ortamında çalışan,  
+**QR kod ile oda doğrulaması**, **otonom navigasyon** ve  
+**oda bazlı temizlik** gerçekleştiren akıllı bir mobil robot sistemidir.
 
-📌 Proje Özellikleri
+Robot, ev ortamında odalara girerken QR kodları okuyarak hangi odaya girdiğini doğrular,  
+her oda için belirlenen temizlik görevlerini yerine getirir ve  
+tüm görevler tamamlandığında **detaylı bir temizlik raporu** oluşturur.
 
-📷 QR Kod ile Oda Tanıma
+---
 
-🔁 QR okuma için 2 deneme hakkı
+## 📌 Proje Özellikleri
 
-🔄 QR bulunamazsa açı taraması (scan behavior)
+- 📷 **QR Kod ile Oda Tanıma**
+- 🔁 QR okuma için **2 deneme hakkı**
+- 🔄 QR bulunamazsa **açı taraması (scan behavior)**
+- ⏱️ Her oda için **timeout süresi**
+- 🧭 `move_base` ile **otonom navigasyon**
+- 🧹 **Oda bazlı temizlik görevleri**
+- 📊 Görev sonunda **temizlik raporu**
+- 🏠 Çok odalı ev senaryosu desteği
+- 🧠 **YAML tabanlı görev yapılandırması**
 
-⏱️ Her oda için timeout süresi
+---
 
-🧭 move_base ile otonom navigasyon
+## 🗂️ Proje Klasör Yapısı
 
-🧹 Oda bazlı temizlik görevleri
-
-📊 Görev sonunda temizlik raporu
-
-🏠 Çok odalı ev senaryosu desteği
-
-🧠 YAML tabanlı görev yapılandırması
-
-🗂️ Proje Klasör Yapısı
+```text
 ktun_robotics/
 ├── launch/
 │   └── start_my_project.launch
@@ -51,100 +51,121 @@ ktun_robotics/
 │
 ├── images/
 │   ├── gazebo.jpeg
-│   ├── rapor.jpeg
 │   ├── rviz.jpeg
+│   ├── rapor.jpeg
 │   └── terminal.png
 │
 ├── README.md
 ├── package.xml
 └── CMakeLists.txt
+````
 
-⚙️ Gereksinimler
+---
 
-Ubuntu 20.04
+## ⚙️ Gereksinimler
 
-ROS Noetic
+* Ubuntu 20.04
+* ROS Noetic
+* Gazebo
+* RViz
+* OpenCV
+* pyzbar
+* move_base
+* TurtleBot3 (Waffle_Pi)
 
-Gazebo
+---
 
-RViz
+## 🚀 Kurulum
 
-OpenCV
+Terminalde workspace’i kaynaklayın:
 
-pyzbar
-
-move_base
-
-🚀 Kurulum
+```bash
 source ~/catkin_ws/devel/setup.bash
+```
 
-▶️ Gazebo Ortamını Çalıştırma
+---
+
+## ▶️ Çalıştırma Adımları
+
+### 1️⃣ Gazebo Ortamını Başlatma
+
+```bash
 roslaunch ktun_robotics start_my_project.launch
+```
 
-▶️ Navigasyon Stack
+---
+
+### 2️⃣ Navigasyon Stack (AMCL + move_base)
+
+```bash
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch \
 map_file:=$HOME/catkin_ws/src/ktun_robotics/maps/my_map.yaml
+```
 
-▶️ Görev Yöneticisini Çalıştırma
+---
+
+### 3️⃣ Görev Yöneticisini Çalıştırma
+
+```bash
 rosrun ktun_robotics qr_task.py
+```
 
+> ⚠️ `qr+task.py` **kullanılmamalıdır**.
+> Doğru dosya adı: **qr_task.py**
 
-⚠️ qr+task.py yerine qr_task.py kullanılması gereklidir.
+---
 
-🧠 Görev Akışı
+## 🧠 Görev Akışı
 
-Robot ev ortamında başlar
+1. Robot ev ortamında başlar
+2. Oda giriş waypoint’ine gider
+3. QR kodu okumaya çalışır (**maksimum 2 deneme**)
+4. QR bulunamazsa:
 
-Oda giriş noktasına gider
+   * Robot bulunduğu yerde **açı taraması** yapar
+   * Yine bulunamazsa oda **atlanır**
+5. QR doğruysa:
 
-QR kodu okumaya çalışır
+   * Odaya ait temizlik noktalarına sırayla gider
+6. Oda için belirlenen **timeout süresi aşılırsa**:
 
-Maksimum 2 deneme
+   * Oda başarısız sayılır
+7. Tüm odalar tamamlanınca:
 
-QR bulunamazsa:
+   * **Temizlik raporu oluşturulur**
 
-Robot bulunduğu yerde açı taraması yapar
+---
 
-Yine bulunamazsa oda atlanır
+## 🏷️ QR Kod Kuralları
 
-QR doğruysa:
+QR içerikleri **aşağıdaki formatta olmalıdır**:
 
-Temizlik noktalarına sırayla gider
-
-Oda için belirlenen timeout süresi aşılırsa:
-
-Oda başarısız sayılır
-
-Tüm odalar tamamlanınca:
-
-Temizlik raporu oluşturulur
-
-🏷️ QR Kod Kuralları
-
-QR içeriği aşağıdaki formatta olmalıdır:
-
+```
 ROOM=LIVINGROOM
 ROOM=BATHROOM
 ROOM=KITCHEN
 ROOM=BEDROOM
 ROOM=CORRIDOR
+```
 
+* ❌ Yanlış QR → görev iptal edilir
+* ⏳ QR 2 denemede okunamazsa → oda atlanır
 
-❌ Yanlış QR → görev iptal edilir
+---
 
-⏳ QR 2 denemede okunamazsa → oda atlanır
+## ⏱️ Timeout Mekanizması
 
-⏱️ Timeout Mekanizması
+* Her oda için **ayrı timeout süresi** vardır
+* Süre aşılırsa:
 
-Her oda için ayrı bir timeout süresi vardır
+  * O oda **TAMAMLANAMADI (timeout)** olarak işaretlenir
+  * Robot bir sonraki odaya geçer
 
-Süre aşılırsa:
+---
 
-O oda TAMAMLANAMADI (timeout) olarak işaretlenir
+## 📄 mission.yaml Örneği
 
-Robot bir sonraki odaya geçer
-
-📄 mission.yaml Yapısı
+```yaml
 rooms:
   - name: "LIVINGROOM"
     qr_expected: "ROOM=LIVINGROOM"
@@ -152,12 +173,20 @@ rooms:
     cleaning_goals:
       - {x: 1.8, y: -1.0, yaw: 1.57}
       - {x: 2.2, y: -0.5, yaw: 0.0}
+```
 
-📊 Temizlik Raporu
+---
 
-Görev sonunda hem terminalde hem de report/temizlik_raporu.txt dosyasında rapor oluşturulur.
+## 📊 Temizlik Raporu
 
-Örnek Çıktı
+Görev sonunda rapor:
+
+* Terminalde gösterilir
+* `report/temizlik_raporu.txt` dosyasına kaydedilir
+
+### Örnek Çıktı
+
+```
 === TEMİZLİK RAPORU ===
 LIVINGROOM : TEMİZLENDİ
 BATHROOM   : TEMİZLENDİ
@@ -165,19 +194,33 @@ KITCHEN    : TAMAMLANAMADI (timeout)
 BEDROOM    : KISMEN (1/3)
 CORRIDOR   : TEMİZLENDİ
 =======================
+```
 
-🖼️ Görseller
-🏠 Gazebo Ev Ortamı
+---
 
-🧭 RViz Navigasyon
+## 🖼️ Görseller
 
-📊 Temizlik Raporu
+### 🏠 Gazebo Ev Ortamı
 
-💻 Terminal Çıktıları
+![Gazebo](images/gazebo.jpeg)
 
-👩‍💻 Geliştirici
+### 🧭 RViz Navigasyon
 
-Sude
+![RViz](images/rviz.jpeg)
+
+### 📊 Temizlik Raporu
+
+![Rapor](images/rapor.jpeg)
+
+### 💻 Terminal Çıktıları
+
+![Terminal](images/terminal.png)
+
+---
+
+## 👩‍💻 Geliştirici
+
+**Sude**
 📍 Konya Teknik Üniversitesi
 📘 Robotik & Yapay Zeka
 📌 ROS • Python • OpenCV • Gazebo
